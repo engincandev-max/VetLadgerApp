@@ -30,6 +30,22 @@ class TransactionRepository {
     return result.rows;
   }
 
+  async findAll(limit = null) {
+    let query = `SELECT t.*, u.name as customer_name
+       FROM transactions t
+       LEFT JOIN users u ON t.customer_id = u.id
+       ORDER BY t.created_at DESC`;
+    const params = [];
+
+    if (limit) {
+      query += ' LIMIT $1';
+      params.push(limit);
+    }
+
+    const result = await pool.query(query, params);
+    return result.rows;
+  }
+
   async create(transactionData) {
     const { customerId, animalId, amount, description, type } = transactionData;
     const result = await pool.query(

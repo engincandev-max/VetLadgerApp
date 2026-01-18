@@ -135,9 +135,18 @@ export default function CustomerDetail() {
                 <div className="text-sm font-bold text-slate-900">Son İşlemler</div>
                 <div className="text-xs text-slate-400 font-semibold">Son 6 finansal hareket</div>
               </div>
+
+              <Link
+                to={`/transactions/new?customerId=${id}`}
+                className="text-xs font-bold text-indigo-600 bg-indigo-50 px-3 py-1.5 rounded-xl"
+              >
+                Yeni İşlem
+              </Link>
+
               <button className="text-xs font-bold text-indigo-600 bg-indigo-50 px-3 py-1.5 rounded-xl">
                 Yeni İşlem
               </button>
+
             </div>
             <div className="space-y-4">
               {loading && <div className="text-sm text-slate-400">Yükleniyor...</div>}

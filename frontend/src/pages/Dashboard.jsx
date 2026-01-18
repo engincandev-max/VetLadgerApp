@@ -1,4 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
+
+import { Link } from "react-router-dom";
+
+
 import api from "../lib/api";
 import AppShell from "../components/AppShell";
 
@@ -54,9 +58,12 @@ export default function Dashboard() {
       title="Genel Bakış"
       subtitle="Kliniğinizin güncel finansal özetini ve müşteri hareketlerini takip edin."
       actions={
-        <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-2xl font-bold text-sm shadow-lg shadow-indigo-100 transition-all active:scale-95">
+        <Link
+          to="/transactions/new"
+          className="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-2xl font-bold text-sm shadow-lg shadow-indigo-100 transition-all active:scale-95"
+        >
           Yeni İşlem
-        </button>
+        </Link>
       }
     >
       {error && (
@@ -85,9 +92,12 @@ export default function Dashboard() {
               <div className="text-sm font-bold text-slate-900">Son İşlemler</div>
               <div className="text-xs text-slate-400 font-semibold">En güncel hareketler</div>
             </div>
-            <button className="text-xs font-bold text-indigo-600 bg-indigo-50 px-3 py-1.5 rounded-xl">
+            <Link
+              to="/transactions"
+              className="text-xs font-bold text-indigo-600 bg-indigo-50 px-3 py-1.5 rounded-xl"
+            >
               Tümünü Gör
-            </button>
+            </Link>
           </div>
           <div className="space-y-4">
             {loading && (
@@ -130,12 +140,18 @@ export default function Dashboard() {
               Müşteri yönetimini tek merkezden yönetin.
             </p>
             <div className="mt-5 space-y-3">
-              <button className="w-full text-left px-4 py-3 rounded-2xl bg-slate-50 text-sm font-bold text-slate-600 hover:bg-white hover:shadow-sm transition-all">
+              <Link
+                to="/customers/new"
+                className="w-full text-left px-4 py-3 rounded-2xl bg-slate-50 text-sm font-bold text-slate-600 hover:bg-white hover:shadow-sm transition-all"
+              >
                 + Yeni Müşteri Oluştur
-              </button>
-              <button className="w-full text-left px-4 py-3 rounded-2xl bg-slate-50 text-sm font-bold text-slate-600 hover:bg-white hover:shadow-sm transition-all">
+              </Link>
+              <Link
+                to="/transactions/new?type=odeme"
+                className="w-full text-left px-4 py-3 rounded-2xl bg-slate-50 text-sm font-bold text-slate-600 hover:bg-white hover:shadow-sm transition-all"
+              >
                 + Tahsilat Girişi
-              </button>
+              </Link>
             </div>
           </div>
 
