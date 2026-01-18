@@ -43,9 +43,11 @@ export default function AppShell({ title, subtitle, actions, children }) {
               <NavLink to="/customers" className={navLinkStyles}>
                 Müşteriler
               </NavLink>
+
               <NavLink to="/transactions" className={navLinkStyles}>
                 İşlemler
               </NavLink>
+
             </div>
           </div>
 

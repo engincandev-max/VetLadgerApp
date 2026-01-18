@@ -1,5 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
+
 import { Link, useNavigate } from "react-router-dom";
+=======
+import { useNavigate } from "react-router-dom";
+
 import api from "../../lib/api";
 import AppShell from "../../components/AppShell";
 
@@ -97,12 +101,18 @@ export default function CustomerList() {
               />
             </svg>
           </div>
+
           <Link
             to="/customers/new"
             className="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-2xl font-bold text-sm shadow-lg shadow-indigo-100 transition-all active:scale-95"
           >
             + Yeni Müşteri
           </Link>
+
+          <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-2xl font-bold text-sm shadow-lg shadow-indigo-100 transition-all active:scale-95">
+            + Yeni Müşteri
+          </button>
+
         </>
       }
     >
