@@ -19,6 +19,10 @@ class TransactionService {
     return transactionRepository.findByAnimalId(animalId);
   }
 
+  async getAllTransactions(limit = null) {
+    return transactionRepository.findAll(limit);
+  }
+
   async createTransaction(transactionData) {
     const { customerId, animalId, amount, description, type } = transactionData;
 

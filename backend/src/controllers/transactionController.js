@@ -14,12 +14,14 @@ class TransactionController {
   async getTransactionsByCustomerId(req, res, next) {
     try {
       const { customerId } = req.query;
-      
-      if (!customerId) {
-        return res.status(400).json({ error: 'Müşteri ID gerekli' });
-      }
 
       const limit = req.query.limit ? parseInt(req.query.limit) : null;
+
+      if (!customerId) {
+        const transactions = await transactionService.getAllTransactions(limit);
+        return res.json(transactions);
+      }
+
       const transactions = await transactionService.getTransactionsByCustomerId(customerId, limit);
       res.json(transactions);
     } catch (err) {
