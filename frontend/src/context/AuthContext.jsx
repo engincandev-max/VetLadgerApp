@@ -12,27 +12,29 @@ export function AuthProvider({ children }) {
   const isAuthenticated = !!localStorage.getItem("token");
 
   const loginVet = async ({ password }) => {
-    const res = await api.post("/auth/login/vet", { password });
+    const res = await api.post("/auth/login-vet", { password });
 
     const token = res.data?.token;
+    const userData = res.data?.user ?? { role: "vet" };
     if (!token) throw new Error("Token gelmedi (loginVet response kontrol)");
 
     localStorage.setItem("token", token);
-    localStorage.setItem("user", JSON.stringify({ role: "vet" }));
-    setUser({ role: "vet" });
+    localStorage.setItem("user", JSON.stringify(userData));
+    setUser(userData);
 
     return res.data;
   };
 
   const loginCustomer = async ({ customerId }) => {
-    const res = await api.post("/auth/login/customer", { customerId });
+    const res = await api.post("/auth/login-customer", { customerId });
 
     const token = res.data?.token;
+    const userData = res.data?.user ?? { role: "customer", id: customerId };
     if (!token) throw new Error("Token gelmedi (loginCustomer response kontrol)");
 
     localStorage.setItem("token", token);
-    localStorage.setItem("user", JSON.stringify({ role: "customer", customerId }));
-    setUser({ role: "customer", customerId });
+    localStorage.setItem("user", JSON.stringify(userData));
+    setUser(userData);
 
     return res.data;
   };
