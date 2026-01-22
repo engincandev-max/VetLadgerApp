@@ -1,17 +1,11 @@
 import { Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
-
 import CustomerCreate from "./pages/Customers/CustomerCreate";
-import CustomerList from "./pages/Customers/CustomerList";
-impozt CustomerDetail from "./pages/Customers/CustomerDetail";
-import Dashboard from "./pages/Dashboard";
-import TransactionCreate from "./pages/Transactions/TransactionCreate";
-import TransactionList from "./pages/Transactions/TransactionList";
-
 import CustomerList from "./pages/Customers/CustomerList";
 import CustomerDetail from "./pages/Customers/CustomerDetail";
 import Dashboard from "./pages/Dashboard";
-
+import TransactionCreate from "./pages/Transactions/TransactionCreate";
+import TransactionList from "./pages/Transactions/TransactionList";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
@@ -35,7 +29,6 @@ function App() {
         }
       />
       <Route
-
         path="/customers/new"
         element={
           <ProtectedRoute>
@@ -44,7 +37,6 @@ function App() {
         }
       />
       <Route
-
         path="/customers/:id"
         element={
           <ProtectedRoute>
@@ -52,7 +44,6 @@ function App() {
           </ProtectedRoute>
         }
       />
-
       <Route
         path="/transactions"
         element={
@@ -69,7 +60,6 @@ function App() {
           </ProtectedRoute>
         }
       />
-
     </Routes>
   );
 }
