@@ -1,5 +1,4 @@
 import { Routes, Route } from "react-router-dom";
-// Keep imports unique to avoid duplicate identifier errors after merges.
 import Login from "./pages/Login";
 import CustomerCreate from "./pages/Customers/CustomerCreate";
 import CustomerList from "./pages/Customers/CustomerList";
